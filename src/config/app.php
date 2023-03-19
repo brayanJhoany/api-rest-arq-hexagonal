@@ -195,6 +195,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        //hexagonal
+
+        \Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
+        \Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class,
+
     ],
 
     /*

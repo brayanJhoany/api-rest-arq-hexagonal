@@ -13,7 +13,7 @@ abstract class Domain
     }
     public function entity(): mixed
     {
-        return $this->entity();
+        return $this->entity;
     }
     protected abstract function isExeption(?string $exeption): void;
 }

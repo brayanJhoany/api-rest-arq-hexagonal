@@ -11,7 +11,6 @@ abstract class CustomController extends Controller
     /**
      * jsonResponse
      *
-     * @return void
      */
     protected function jsonResponse(
         int $status,
