@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServicesRouteServiceProvider
             'api/' . $appVersion . '/login',
             'Src\Management\Login\Infrastructure\Controller',
             'Src/Management/Login/Infrastructure/Routes/Api.php',
-            true
+            false
         );
         parent::__construct($app);
     }

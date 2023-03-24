@@ -4,12 +4,12 @@ namespace Src\Shared\Infrastructure\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Src\Shared\Domain\Helper\HttpCodeDomainHelper;
 use Src\Shared\Infrastructure\Exeptions\ApiAuthException;
+use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
 
 final class ApiMiddleware
 {
-    use HttpCodeDomainHelper;
+    use HttpCodesHelper;
 
     public function handle(
         Request $request,

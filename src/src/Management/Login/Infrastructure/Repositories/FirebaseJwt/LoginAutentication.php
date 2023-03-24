@@ -6,6 +6,8 @@ use Src\Management\Login\Domain\Contracts\LoginAutenticationContract;
 use Src\Management\Login\Domain\ValueObjects\LoginAutenticationParameters;
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use Src\Management\Login\Domain\ValueObjects\LoginJwt;
 
 final class LoginAutentication implements LoginAutenticationContract
 {
@@ -21,5 +23,22 @@ final class LoginAutentication implements LoginAutenticationContract
             $loginAuthTentication->jwtKey(),
             $loginAuthTentication->jwtEncryot()
         );
+    }
+
+    public function check(LoginJwt $loginJwt): bool
+    {
+        try {
+            $tokenData =  $this->jwt::decode(
+                $loginJwt->value(),
+                new Key($loginJwt->jwtKey(), $loginJwt->jwtEncryot())
+            );
+
+            if ($tokenData->exp < time()) {
+                return false;
+            }
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }

@@ -20,7 +20,8 @@ final class DependencyServiceProvider extends ServicesDependencyServiceProvider
                 ],
                 [
                     'useCase' => [
-                        \Src\Management\Login\Application\Auth\LoginAutenticationUseCase::class
+                        \Src\Management\Login\Application\Auth\LoginAutenticationUseCase::class,
+                        \Src\Management\Login\Application\Auth\LoginCheckAuthenticationUseCase::class
                     ],
                     'contract' => \Src\Management\Login\Domain\Contracts\LoginAutenticationContract::class,
                     'repository' => \Src\Management\Login\Infrastructure\Repositories\FirebaseJwt\LoginAutentication::class

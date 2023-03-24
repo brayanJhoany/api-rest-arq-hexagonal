@@ -27,8 +27,9 @@ final class LoginAutenticationParameters extends MixedValueObject
 
     private function getTime(): float | int
     {
-        $time = time();
-        return $time + (60 * 60);
+        $currentTime = time();
+        $expirationDate = strtotime('+1 month', $currentTime);
+        return  strtotime(date('Y-m-d H:i:s', $expirationDate));
     }
     private function getAud(): ?string
     {
