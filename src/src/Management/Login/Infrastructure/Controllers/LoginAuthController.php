@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
 use Src\Shared\Infrastructure\Controllers\CustomController;
 use Src\Management\Login\Application\Login\LoginAuthUserCase;
+use Src\Shared\Infrastructure\Middleware\RoleMiddleware;
 
 final class LoginAuthController extends CustomController
 {
@@ -14,6 +15,9 @@ final class LoginAuthController extends CustomController
 
     public function __construct(private LoginAuthUserCase $loginCase)
     {
+        $this->middleware(RoleMiddleware::class, [
+            'roles' => 'super_admin'
+        ]);
     }
     public function __invoke(Request $request): JsonResponse
     {

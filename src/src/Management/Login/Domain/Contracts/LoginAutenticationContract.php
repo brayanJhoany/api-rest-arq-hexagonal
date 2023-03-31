@@ -10,4 +10,6 @@ interface LoginAutenticationContract
     public function auth(LoginAutenticationParameters $loginAutenticationParameters): string;
 
     public function check(LoginJwt $loginJwt): bool;
+
+    public function get(LoginJwt $loginJwt): mixed;
 }

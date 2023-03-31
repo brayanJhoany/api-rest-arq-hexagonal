@@ -37,9 +37,11 @@ final class LoginRepository implements LoginRepositoryContract
      */
     private function findUserByEmail(string $email): array
     {
-        $user = $this->model->where('email', $email)->first([
-            'id', 'email', 'password', 'first_name'
-        ]);
+        $user = $this->model->where('email', $email)
+            ->with('roles')
+            ->first([
+                'id', 'email', 'password', 'first_name'
+            ]);
         return $user ? $user->makeVisible('password')->toArray() : [];
     }
 }
