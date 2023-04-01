@@ -197,10 +197,12 @@ return [
 
 
         //hexagonal
-
+        //Login
         \Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
         \Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class,
-
+        //ForgotPassword
+        \Src\Management\Forgot\Infrastructure\Services\RouteServiceProvider::class,
+        \Src\Management\Forgot\Infrastructure\Services\DependencyServiceProvider::class,
     ],
 
     /*
